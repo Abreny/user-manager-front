@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FaConfig } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'usermanager-front';
+  constructor(faConfig: FaConfig) {
+    faConfig.defaultPrefix = 'fas';
+  }
 }
