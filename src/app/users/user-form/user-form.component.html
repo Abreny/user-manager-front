@@ -1,0 +1,24 @@
+<h2>Ajouter un utilisateur</h2>
+<form autocomplete="off" [formGroup]="userForm">
+    <div class="form-group">
+        <label for="nom">Nom <span class="text-danger">*</span></label>
+        <input class="form-control" type="text" id="nom" formControlName="nom" required autocomplete="off">
+        <div *ngIf="isFieldInvalid('nom')" class="text-danger">
+            Entrer un nom valide.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input class="form-control" type="text" id="prenom" formControlName="prenom" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="email">Email <span class="text-danger">*</span></label>
+        <input class="form-control" type="email" id="email" formControlName="email" required autocomplete="off">
+        <div *ngIf="isFieldInvalid('email')" class="text-danger">
+            Entrer un nom valide.
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="button" (click)="onSubmit()" class="btn btn-primary">Enregistrer</button>
+    </div>
+</form>

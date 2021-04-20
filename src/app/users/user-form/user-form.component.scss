@@ -1,0 +1,17 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-group {
+	margin: 10px 0;
+}
+
+form label {
+    display: block;
+}
+
+form .btn {
+    height: 40px;
+    padding: 0 20px;
+}

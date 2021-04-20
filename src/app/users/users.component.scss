@@ -1,0 +1,59 @@
+.wrapper {
+    display: flex;
+}
+
+.users-form {
+    margin: 20px;
+}
+
+.users-list {
+    flex-grow: 1;
+    margin: 20px;
+}
+
+.users-list table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.users-list td {
+    height: 40px;
+}
+
+.users-list td a {
+    padding: 5px;
+    width: 2em;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.table-header input {
+    border-radius: 20px;
+    line-height: 1;
+}
+
+.table-footer {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-color);
+}
+  
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}

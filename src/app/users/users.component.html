@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <div class="users-form">
+        <app-user-form (submitted)="onSaveForm($event)" [user]="selectedUser"></app-user-form>
+    </div>
+    <div class="users-list">
+        <div class="table-header">
+            <h2>Liste des utilisateurs</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Rechercher" [(ngModel)]="q" (keyup)="showUsers()">
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>#ID</th>
+                <th>NOM</th>
+                <th>PRENOM</th>
+                <th>EMAIL</th>
+                <th>MEMBRE DEPUIS</th>
+                <th></th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.createdAt|date: "m/d/Y" }}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary" (click)="setSelectedUser(user)"><fa-icon icon="edit"></fa-icon></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-footer">
+            <div class="select-page">
+                <label for="page">Affichage: </label>
+                <select name="page" class="form-control" id="page" [(ngModel)]="page.page" (change)="showUsers()">
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option [value]="page.total">Tous</option>
+                </select>
+            </div>
+            <div class="pagination">
+                <a href="#" (click)="goToPrevPage()">&laquo;</a>
+                <a href="#" *ngFor="let p of getPages()" [ngClass]="p == page.selected ? 'active' : ''" (click)="goToPage(p)">{{ p }}</a>
+                <a href="#" (click)="goToNextPage()">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
